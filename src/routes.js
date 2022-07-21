@@ -1,4 +1,4 @@
-import HomePage from './views/HomePage.vue'
+import HomePage from './views/pages/HomePage.vue'
 export const routes = [
     {
         path: '/',
