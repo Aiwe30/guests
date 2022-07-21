@@ -3,7 +3,6 @@ import HeaderLayout from './views/layout/HeaderLayout.vue';
 import SideBarLayout from './views/layout/SideBarLayout.vue';
 import FooterLayout from './views/layout/FooterLayot.vue';
 </script>
-
 <template>
   <HeaderLayout />
   <div class="container-fluid mt-5">
@@ -17,7 +16,7 @@ import FooterLayout from './views/layout/FooterLayot.vue';
       </div>
       <div class="col py-3">
         <div class="mt-5">
-          <router-view></router-view>
+          <router-view :key='$route.fullPath'></router-view>
         </div>
       </div>
     </div>
