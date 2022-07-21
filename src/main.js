@@ -12,6 +12,7 @@ const pinia = createPinia();
 const router = createRouter({
     history: createWebHistory(),
     routes,
+    linkActiveClass: 'bg-primary text-white',
 });
 
 const vm = createApp(App);
