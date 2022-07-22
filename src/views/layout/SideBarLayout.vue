@@ -7,7 +7,7 @@ guestStore.loadAllGuests();
 <template>
   <div>
     <ul class="list-group m-0 p-0 mb-5">
-      <li class="list-group-item border-0 p-0">
+      <li class="list-group-item border-0 p-0 bg-light">
         <router-link to="/" class="nav-link px-3 py-2">
           <i class="bi bi-house"></i>
           <span class="ms-2 d-none d-sm-inline">Home</span>
@@ -16,13 +16,13 @@ guestStore.loadAllGuests();
     </ul>
 
     <ul class="list-group m-0 p-0 mt-5">
-      <li class="list-group-item border-0 p-0" v-for="country in guestStore.getAllGuests" :key="country.id">
+      <li class="list-group-item border-0 p-0 bg-light" v-for="country in guestStore.getAllGuests" :key="country.id">
         <div class="nav-link px-3 py-2">
           <i class="bi bi-geo-alt"></i>
           <span class="ms-2 d-none d-sm-inline"><strong>{{ country.name}}</strong></span>
         </div>
         <ul class="list-group m-0 p-0">
-          <li class="list-group-item border-0 p-0" v-for="(city, index) in country.cities" :key="index">
+          <li class="list-group-item border-0 p-0 bg-light" v-for="(city, index) in country.cities" :key="index">
             <router-link class="nav-link px-3 py-2" :to="{ name: 'city', params: {id: city.id}}">
               <i class="bi bi-building"></i>
               <span class="ms-2 d-none d-sm-inline"> {{ city.name }}</span>

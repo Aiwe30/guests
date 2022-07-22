@@ -64,6 +64,7 @@ const resetTeamMemberValues = () => {
   guest.password = ''
 }
 
+
 const cities = guestStore.getAllGuests.flatMap((country) => {
   return country.cities.filter((city) => {
     return city.country_id === 1;
