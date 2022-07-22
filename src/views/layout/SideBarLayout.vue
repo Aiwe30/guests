@@ -19,7 +19,7 @@ guestStore.loadAllGuests();
       <li class="list-group-item border-0 p-0" v-for="country in guestStore.getAllGuests" :key="country.id">
         <div class="nav-link px-3 py-2">
           <i class="bi bi-geo-alt"></i>
-          <span class="ms-2 d-none d-sm-inline">{{ country.name}}</span>
+          <span class="ms-2 d-none d-sm-inline"><strong>{{ country.name}}</strong></span>
         </div>
         <ul class="list-group m-0 p-0">
           <li class="list-group-item border-0 p-0" v-for="(city, index) in country.cities" :key="index">

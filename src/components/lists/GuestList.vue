@@ -1,25 +1,20 @@
 <script setup>
 import { useGuestStore } from "../../stores/guestStore.js";
-import { useRoute} from 'vue-router';
-
 const guestStore = useGuestStore();
 guestStore.loadAllGuests();
-
-const route = useRoute();
-const routeId = route.params.id;
-
-const cities = guestStore.getAllGuests.flatMap((country) => {
-  return country.cities.filter((city) => city.id === Math.floor(routeId));
-});
 </script>
 <template>
   <div class="container d-flex justify-content-center mb-5">
-    <div class="card border-0 col-12 col-lg-10 col-xl-8" v-for="city in cities" :key="city.id">
-      <div class="card-title text-center mt-3">
-        <h5>{{ city.name }}</h5>
-      </div>
-      <div class="card-body">
-        <div class="card border-0 shadow my-2" v-for="guest in city.guests" :key="guest.id">
+    <div class="card border-0 col-12 col-lg-10 col-xl-8">
+      <span v-for="country in guestStore.getAllGuests" :key="country.id">
+        <span v-for="city in country.cities" :key="city.id">
+          <div class="card-title mt-3 ms-4">
+            <i class="bi bi-geo-alt"></i>
+            {{ country.name }} > {{ city.name }}
+          </div>
+          <span v-for="guest in city.guests" :key="guest.id">
+            <div class="card-body">
+        <div class="card border-0 shadow">
           <div class="row card-body">
             <div class="col-md-2 d-flex justify-content-center align-content-center">
               <h1><i class="bi bi-person-circle"></i></h1>
@@ -36,6 +31,9 @@ const cities = guestStore.getAllGuests.flatMap((country) => {
           </div>
         </div>
       </div>
+          </span>
+        </span>
+      </span>
     </div>
   </div>
 </template>

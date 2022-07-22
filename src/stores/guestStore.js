@@ -10,6 +10,12 @@ export const useGuestStore = defineStore('GuestStore', {
         async loadAllGuests() {
             this.guests = (await import("../data/guests.json")).default;
         },
+        storeGuest(guest) {
+            this.guests[guest.country_id -1].cities[guest.city_id -1].guests.push({
+                id: 11,
+                ...guest
+            });
+        }
     },
     getters: {
         getAllGuests(state) {
