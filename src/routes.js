@@ -1,5 +1,6 @@
 import HomePage from './views/pages/HomePage.vue';
 import CityPage from './views/pages/CityPage.vue';
+import CreateGuestPage from './views/pages/CreateGuestPage.vue'
 export const routes = [
     {
         path: '/',
@@ -10,5 +11,10 @@ export const routes = [
         path: '/cities/:id',
         name: 'city',
         component: CityPage
+    },
+    {
+        path: '/create-guest',
+        name: 'crete-guest',
+        component: CreateGuestPage
     }
 ]

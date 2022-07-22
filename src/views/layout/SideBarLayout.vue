@@ -15,6 +15,15 @@ guestStore.loadAllGuests();
       </li>
     </ul>
 
+    <ul class="list-group m-0 p-0 mb-5">
+      <li class="list-group-item border-0 p-0 bg-light">
+        <router-link to="/create-guest" class="nav-link px-3 py-2">
+          <i class="bi bi-person-plus"></i>
+          <span class="ms-2 d-none d-sm-inline">Create Guest</span>
+        </router-link>
+      </li>
+    </ul>
+
     <ul class="list-group m-0 p-0 mt-5">
       <li class="list-group-item border-0 p-0 bg-light" v-for="country in guestStore.getAllGuests" :key="country.id">
         <div class="nav-link px-3 py-2">
