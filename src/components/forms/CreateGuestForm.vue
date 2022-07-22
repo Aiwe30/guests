@@ -48,12 +48,12 @@ const storeGuest = async () => {
       password: guest.password
     });
     v$.value.$reset();
-    resetTeamMemberValues();
+    resetGuest();
     await router.push('/');
   }
 }
 
-const resetTeamMemberValues = () => {
+const resetGuest = () => {
   guest.country_id = '';
   guest.city_id = '';
   guest.firstName = '';

@@ -38,7 +38,7 @@
         "name": "Kaunas",
         "guests": [
           {
-            "id": 3,
+            "id": 1,
             "country_id": 1,
             "city_id": 2,
             "firstName": "Lucie",
@@ -57,12 +57,12 @@
     "name": "Latvia",
     "cities": [
       {
-        "id": 3,
+        "id": 1,
         "country_id": 2,
         "name": "Riga",
         "guests": [
           {
-            "id": 4,
+            "id": 1,
             "country_id": 2,
             "city_id": 3,
             "firstName": "Noah",
@@ -75,12 +75,12 @@
         ]
       },
       {
-        "id": 4,
+        "id": 2,
         "country_id": 2,
         "name": "Ventspils",
         "guests": [
           {
-            "id": 5,
+            "id": 1,
             "country_id": 2,
             "city_id": 4,
             "firstName": "Olivia",
@@ -99,12 +99,12 @@
     "name": "Estonia",
     "cities": [
       {
-        "id": 5,
+        "id": 1,
         "country_id": 3,
         "name": "Talin",
         "guests": [
           {
-            "id": 6,
+            "id": 1,
             "country_id": 3,
             "city_id": 5,
             "firstName": "Peter",

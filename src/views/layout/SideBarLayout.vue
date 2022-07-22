@@ -22,6 +22,12 @@ guestStore.loadAllGuests();
           <span class="ms-2 d-none d-sm-inline">Create Guest</span>
         </router-link>
       </li>
+      <li class="list-group-item border-0 p-0 bg-light">
+        <router-link to="/create-city" class="nav-link px-3 py-2">
+          <i class="bi bi-bricks"></i>
+          <span class="ms-2 d-none d-sm-inline">Create City</span>
+        </router-link>
+      </li>
     </ul>
 
     <ul class="list-group m-0 p-0 mt-5">
