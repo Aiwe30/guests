@@ -8,7 +8,7 @@ import FooterLayout from './views/layout/FooterLayot.vue';
   <div class="container-fluid mt-5">
     <div class="row flex-nowrap">
       <div class="col-auto col-md-3 col-xl-2 p-0 bg-white border-end">
-        <div class="pt-2 text-white min-vh-100">
+        <div class="pt-2 text-white min-vh-100 bg-light">
           <div class="mt-5">
             <SideBarLayout />
           </div>

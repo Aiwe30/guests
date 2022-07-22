@@ -69,9 +69,7 @@ const cities = guestStore.getAllGuests.flatMap((country) => {
     return city.country_id === 1;
   });
 });
-
 </script>
-
 <template>
   <div class="container d-flex justify-content-center">
     <div class="card border-0 shadow col-12 col-lg-8 col-xl-6">
