@@ -1,4 +1,6 @@
 import { defineStore} from "pinia";
+import { useCountryStore } from "./countryStore.js";
+import { useCityStore} from "./cityStore.js";
 
 export const useGuestStore = defineStore('GuestStore', {
     state: () => {
@@ -11,23 +13,33 @@ export const useGuestStore = defineStore('GuestStore', {
             this.guests = (await import("../data/guests.json")).default;
         },
         storeGuest(guest) {
-            const guestArray = this.guests[guest.country_id -1].cities[guest.city_id -1].guests;
-            guestArray.push({
-                id: guestArray.length + 1,
+            this.guests.push({
+                id: this.guests.length + 1,
                 ...guest
-            });
-        },
-        storeCity(city) {
-            const cityArray = this.guests[city.country_id -1].cities;
-            cityArray.push({
-                id: cityArray.length + 1,
-                ...city
             });
         }
     },
     getters: {
         getAllGuests(state) {
             return  [...state.guests];
+        },
+        getGuestWithCityAndCountry(state) {
+            const cityStore = useCityStore();
+            const countryStore = useCountryStore();
+
+            cityStore.loadAllCities();
+            countryStore.loadAllCountries();
+
+            const guests = [...state.guests];
+            const cities = cityStore.getAllCities;
+            const countries = countryStore.getAllCountries;
+            return guests.map((guest) => {
+                const city = cities.find(city => city.id === guest.cityId);
+                const country = countries.find(country => country.id === city.countryId);
+                guest.countryName = country.countryName;
+                guest.cityName = city.cityName;
+                return guest
+            });
         }
     }
 })

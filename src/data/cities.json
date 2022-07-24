@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "countryId": 1,
+      "cityName": "Vilnius"
+    },
+    {
+      "id": 2,
+      "countryId": 1,
+      "cityName": "Kaunas"
+    },
+    {
+      "id": 3,
+      "countryId": 2,
+      "cityName": "Riga"
+    },
+    {
+      "id": 4,
+      "countryId": 2,
+      "cityName": "Ventspils"
+    },
+    {
+      "id": 5,
+      "countryId": 3,
+      "cityName": "Talin"
+    }
+]

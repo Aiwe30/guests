@@ -1,121 +1,62 @@
 [
   {
     "id": 1,
-    "name": "Lithuania",
-    "cities": [
-      {
-        "id": 1,
-        "country_id": 1,
-        "name": "Vilnius",
-        "guests": [
-        {
-          "id": 1,
-          "country_id": 1,
-          "city_id": 1,
-          "firstName": "Jessica",
-          "lastName": "Anderson",
-          "age": 34,
-          "gender": "Ms",
-          "email": "jessica.anderson@gmail.com",
-          "password": "$2y$10$bsHeB9utPwTI"
-        },
-        {
-          "id": 2,
-          "country_id": 1,
-          "city_id": 1,
-          "firstName": "Richard",
-          "lastName": "Anderson",
-          "age": 52,
-          "gender": "Mr",
-          "email": "richard.anderson@gmail.com",
-          "password": "$2y$10$limitXFBMLGt"
-        }
-        ]
-      },
-      {
-        "id": 2,
-        "country_id": 1,
-        "name": "Kaunas",
-        "guests": [
-          {
-            "id": 1,
-            "country_id": 1,
-            "city_id": 2,
-            "firstName": "Lucie",
-            "lastName": "Abrams",
-            "age": 31,
-            "gender": "Ms",
-            "email": "lucie.abrams@gmail.com",
-            "password": "$2y$10$ux3wnu7Uvjgch"
-          }
-        ]
-      }
-    ]
+    "cityId": 1,
+    "firstName": "Jessica",
+    "lastName": "Anderson",
+    "age": 34,
+    "gender": "Ms",
+    "email": "jessica.anderson@gmail.com",
+    "password": "$2y$10$bsHeB9utPwTI"
   },
   {
     "id": 2,
-    "name": "Latvia",
-    "cities": [
-      {
-        "id": 3,
-        "country_id": 2,
-        "name": "Riga",
-        "guests": [
-          {
-            "id": 4,
-            "country_id": 2,
-            "city_id": 3,
-            "firstName": "Noah",
-            "lastName": "Williams",
-            "age": 31,
-            "gender": "Mr",
-            "email": "john.williams@gmail.com",
-            "password": "$2y$10$d4oQwxVjhfghd"
-          }
-        ]
-      },
-      {
-        "id": 4,
-        "country_id": 2,
-        "name": "Ventspils",
-        "guests": [
-          {
-            "id": 5,
-            "country_id": 2,
-            "city_id": 4,
-            "firstName": "Olivia",
-            "lastName": "Brown",
-            "age": 24,
-            "gender": "Mx",
-            "email": "patricia.brown@gmail.com",
-            "password": "$2y$10$uOKTTpj63tsa"
-          }
-        ]
-      }
-    ]
+    "cityId": 1,
+    "firstName": "Richard",
+    "lastName": "Anderson",
+    "age": 52,
+    "gender": "Mr",
+    "email": "richard.anderson@gmail.com",
+    "password": "$2y$10$limitXFBMLGt"
   },
   {
     "id": 3,
-    "name": "Estonia",
-    "cities": [
-      {
-        "id": 5,
-        "country_id": 3,
-        "name": "Talin",
-        "guests": [
-          {
-            "id": 6,
-            "country_id": 3,
-            "city_id": 5,
-            "firstName": "Peter",
-            "lastName": "Wilson",
-            "age": 25,
-            "gender": "Mx",
-            "email": "peter.wilson@gmail.com",
-            "password": "$2y$10$CdQDds5u9jTt"
-          }
-        ]
-      }
-    ]
+    "cityId": 2,
+    "firstName": "Lucie",
+    "lastName": "Abrams",
+    "age": 31,
+    "gender": "Ms",
+    "email": "lucie.abrams@gmail.com",
+    "password": "$2y$10$ux3wnu7Uvjgch"
+  },
+  {
+    "id": 4,
+    "cityId": 3,
+    "firstName": "Noah",
+    "lastName": "Williams",
+    "age": 31,
+    "gender": "Mr",
+    "email": "john.williams@gmail.com",
+    "password": "$2y$10$d4oQwxVjhfghd"
+  },
+  {
+    "id": 5,
+    "cityId": 4,
+    "firstName": "Olivia",
+    "lastName": "Brown",
+    "age": 24,
+    "gender": "Mx",
+    "email": "patricia.brown@gmail.com",
+    "password": "$2y$10$uOKTTpj63tsa"
+  },
+  {
+    "id": 6,
+    "cityId": 5,
+    "firstName": "Peter",
+    "lastName": "Wilson",
+    "age": 25,
+    "gender": "Mx",
+    "email": "peter.wilson@gmail.com",
+    "password": "$2y$10$CdQDds5u9jTt"
   }
 ]
