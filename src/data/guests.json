@@ -57,12 +57,12 @@
     "name": "Latvia",
     "cities": [
       {
-        "id": 1,
+        "id": 3,
         "country_id": 2,
         "name": "Riga",
         "guests": [
           {
-            "id": 1,
+            "id": 4,
             "country_id": 2,
             "city_id": 3,
             "firstName": "Noah",
@@ -75,12 +75,12 @@
         ]
       },
       {
-        "id": 2,
+        "id": 4,
         "country_id": 2,
         "name": "Ventspils",
         "guests": [
           {
-            "id": 1,
+            "id": 5,
             "country_id": 2,
             "city_id": 4,
             "firstName": "Olivia",
@@ -99,12 +99,12 @@
     "name": "Estonia",
     "cities": [
       {
-        "id": 1,
+        "id": 5,
         "country_id": 3,
         "name": "Talin",
         "guests": [
           {
-            "id": 1,
+            "id": 6,
             "country_id": 3,
             "city_id": 5,
             "firstName": "Peter",
