@@ -33,11 +33,12 @@ export const useGuestStore = defineStore('GuestStore', {
             const guests = [...state.guests];
             const cities = cityStore.getAllCities;
             const countries = countryStore.getAllCountries;
+
             return guests.map((guest) => {
                 const city = cities.find(city => city.id === guest.cityId);
                 const country = countries.find(country => country.id === city.countryId);
-                guest.countryName = country.countryName;
-                guest.cityName = city.cityName;
+                guest.guestCountryName = country.countryName;
+                guest.guestCityName = city.cityName;
                 return guest
             });
         }
