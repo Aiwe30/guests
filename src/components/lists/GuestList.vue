@@ -1,10 +1,5 @@
 <script setup>
 import { useGuestStore } from "../../stores/guestStore.js";
-import { useCityStore} from "../../stores/cityStore.js";
-const cityStore = useCityStore();
-
-cityStore.loadAllCities()
-
 const guestStore = useGuestStore();
 guestStore.loadAllGuests();
 
@@ -12,10 +7,10 @@ guestStore.loadAllGuests();
 <template>
 
   <div class="container d-flex flex-column justify-content-center mb-5">
-    <div class="card border-0 col-12 col-lg-10 col-xl-8" v-for="guest in guestStore.getAllGuests" :key="guest.id">
+    <div class="card border-0 col-12 col-lg-10 col-xl-8" v-for="guest in guestStore.getGuestWithCityAndCountry" :key="guest.id">
       <div class="card-title mt-3 ms-4">
-<!--            <i class="bi bi-geo-alt"></i>-->
-<!--            Country Name > City Name -->
+            <i class="bi bi-geo-alt"></i>
+            {{ guest.guestCountryName }} > {{ guest.guestCityName }}
       </div>
       <div class="card-body">
         <div class="card border-0 shadow">

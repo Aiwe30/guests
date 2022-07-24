@@ -1,8 +1,12 @@
 <script setup>
-import { useGuestStore } from "../../stores/guestStore.js";
+import { useCountryStore} from "../../stores/countryStore.js";
+import { useCityStore} from "../../stores/cityStore.js";
 
-const guestStore = useGuestStore();
-guestStore.loadAllGuests();
+const countryStore = useCountryStore();
+const cityStore = useCityStore();
+
+countryStore.loadAllCountries();
+cityStore.loadAllCities();
 </script>
 <template>
   <div>
@@ -31,17 +35,19 @@ guestStore.loadAllGuests();
     </ul>
 
     <ul class="list-group m-0 p-0 mt-5">
-      <li class="list-group-item border-0 p-0 bg-light" v-for="country in guestStore.getAllGuests" :key="country.id">
+      <li class="list-group-item border-0 p-0 bg-light" v-for="country in countryStore.getAllCountries" :key="country.id">
         <div class="nav-link px-3 py-2">
           <i class="bi bi-geo-alt"></i>
-          <span class="ms-2 d-none d-sm-inline"><strong>{{ country.name}}</strong></span>
+          <span class="ms-2 d-none d-sm-inline"><strong>{{ country.countryName}}</strong></span>
         </div>
         <ul class="list-group m-0 p-0">
-          <li class="list-group-item border-0 p-0 bg-light" v-for="(city, index) in country.cities" :key="index">
-            <router-link class="nav-link px-3 py-2" :to="{ name: 'city', params: {id: city.id}}">
-              <i class="bi bi-building"></i>
-              <span class="ms-2 d-none d-sm-inline"> {{ city.name }}</span>
-            </router-link>
+          <li class="list-group-item border-0 p-0 bg-light"  v-for="city in cityStore.getAllCities" :key="city.id">
+            <div v-if="country.id === city.countryId">
+              <router-link class="nav-link px-3 py-2" :to="{ name: 'city', params: {id: city.id}}">
+                <i class="bi bi-building"></i>
+                <span class="ms-2 d-none d-sm-inline"> {{ city.cityName }}</span>
+              </router-link>
+            </div>
           </li>
         </ul>
       </li>
