@@ -1,19 +1,23 @@
 <script setup>
 import { useGuestStore } from "../../stores/guestStore.js";
+import { useCityStore} from "../../stores/cityStore.js";
+const cityStore = useCityStore();
+
+cityStore.loadAllCities()
+
 const guestStore = useGuestStore();
 guestStore.loadAllGuests();
+
 </script>
 <template>
-  <div class="container d-flex justify-content-center mb-5">
-    <div class="card border-0 col-12 col-lg-10 col-xl-8">
-      <span v-for="country in guestStore.getAllGuests" :key="country.id">
-        <span v-for="city in country.cities" :key="city.id">
-          <div class="card-title mt-3 ms-4">
-            <i class="bi bi-geo-alt"></i>
-            {{ country.name }} > {{ city.name }}
-          </div>
-          <span v-for="guest in city.guests" :key="guest.id">
-            <div class="card-body">
+
+  <div class="container d-flex flex-column justify-content-center mb-5">
+    <div class="card border-0 col-12 col-lg-10 col-xl-8" v-for="guest in guestStore.getAllGuests" :key="guest.id">
+      <div class="card-title mt-3 ms-4">
+<!--            <i class="bi bi-geo-alt"></i>-->
+<!--            Country Name > City Name -->
+      </div>
+      <div class="card-body">
         <div class="card border-0 shadow">
           <div class="row card-body">
             <div class="col-md-2 d-flex justify-content-center align-content-center">
@@ -31,9 +35,6 @@ guestStore.loadAllGuests();
           </div>
         </div>
       </div>
-          </span>
-        </span>
-      </span>
     </div>
   </div>
 </template>
