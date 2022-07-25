@@ -29,7 +29,7 @@ const guestValidationRules = computed(() => {
     age: {required, integer, minValue: minValue(18), maxValue: maxValue(130)},
     gender: {required, alpha},
     email: {required, email},
-    password: {required, alphaNum, minLength: minLength(2)}
+    password: {required, alphaNum, minLength: minLength(6)}
   }
 });
 
