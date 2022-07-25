@@ -8,8 +8,7 @@ cityStore.loadAllCities;
 const route = useRoute();
 const routeId = route.params.id;
 
-const city = cityStore.getCitiesWithGuests.find(city => city.id === Math.floor(routeId));
-console.log(city)
+const city = cityStore.getCitiesWithGuests.find(city => city.id === Number(routeId));
 </script>
 <template>
   <div class="container d-flex justify-content-center mb-5">
