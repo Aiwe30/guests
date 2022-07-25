@@ -2,10 +2,8 @@
 import { useGuestStore } from "../../stores/guestStore.js";
 const guestStore = useGuestStore();
 guestStore.loadAllGuests();
-
 </script>
 <template>
-
   <div class="container d-flex flex-column justify-content-center mb-5">
     <div class="card border-0 col-12 col-lg-10 col-xl-8" v-for="guest in guestStore.getGuestWithCityAndCountry" :key="guest.id">
       <div class="card-title mt-3 ms-4">

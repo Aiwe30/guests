@@ -1,16 +1,18 @@
 <script setup>
-import {reactive, computed, ref} from "vue";
+import {reactive, computed} from "vue";
 import useVuelidate from "@vuelidate/core";
 import { required, alpha, integer, minValue, maxValue, email, alphaNum, minLength } from "@vuelidate/validators";
 import { useGuestStore } from "../../stores/guestStore.js";
+import { useCityStore } from "../../stores/cityStore.js";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
 const guestStore = useGuestStore();
+const cityStore = useCityStore();
+cityStore.loadAllCities;
 
 const guest = reactive({
-  country_id: '',
-  city_id: '',
+  cityId: '',
   firstName: '',
   lastName: '',
   age: '',
@@ -21,8 +23,7 @@ const guest = reactive({
 
 const guestValidationRules = computed(() => {
   return {
-    country_id: {required, integer},
-    city_id: {required, integer},
+    cityId: {required, integer},
     firstName: {required, alpha},
     lastName: {required, alpha},
     age: {required, integer, minValue: minValue(18), maxValue: maxValue(130)},
@@ -38,8 +39,7 @@ const storeGuest = async () => {
   const validateGuest = await v$.value.$validate();
   if (validateGuest) {
     guestStore.storeGuest({
-      country_id: guest.country_id,
-      city_id: guest.city_id,
+      cityId: guest.cityId,
       firstName: guest.firstName,
       lastName: guest.lastName,
       age: guest.age,
@@ -54,8 +54,7 @@ const storeGuest = async () => {
 }
 
 const resetGuest = () => {
-  guest.country_id = '';
-  guest.city_id = '';
+  guest.cityId = '';
   guest.firstName = '';
   guest.lastName = '';
   guest.age = '';
@@ -63,12 +62,6 @@ const resetGuest = () => {
   guest.email = '';
   guest.password = ''
 }
-
-const cities = guestStore.getAllGuests.flatMap((country) => {
-  return country.cities.filter((city) => {
-    return city.country_id === 1;
-  });
-});
 </script>
 <template>
   <div class="container d-flex justify-content-center">
@@ -76,25 +69,14 @@ const cities = guestStore.getAllGuests.flatMap((country) => {
       <h3 class="card-title text-center mt-3">Add Guest</h3>
 
       <form class="row card-body" @submit.prevent="storeGuest">
-        <div class="col-md-6 my-2">
-          <label for="country-id" class="form-label">Country</label>
-          <select id="country-id" class="form-select" name="country_id" v-model="guest.country_id">
-            <option disabled value="" selected>Please Select One</option>
-            <option :value="country.id" v-for="country in guestStore.getAllGuests" :key="country.id">{{ country.name }}</option>
-          </select>
-          <span class="text-danger ms-3 my-2">
-            <small v-if="v$.country_id.$errors[0]">{{ v$.country_id.$errors[0].$message }}</small>
-          </span>
-        </div>
-
-        <div class="col-md-6 my-2">
+        <div class="col-12 my-2">
           <label for="city-id" class="form-label">City</label>
-          <select id="city-id" class="form-select" name="city_id" v-model="guest.city_id">
+          <select id="city-id" class="form-select" name="cityId" v-model="guest.cityId">
             <option disabled value="" selected>Please Select One</option>
-            <option :value="city.id" v-for="city in cities" :key="city.id">{{ city.name}}</option>
+            <option :value="city.id" v-for="city in cityStore.getAllCities" :key="city.id">{{ city.cityName}}</option>
           </select>
           <span class="text-danger ms-3 my-2">
-            <small v-if="v$.city_id.$errors[0]">{{ v$.city_id.$errors[0].$message }}</small>
+            <small v-if="v$.cityId.$errors[0]">{{ v$.cityId.$errors[0].$message }}</small>
           </span>
         </div>
 
@@ -155,7 +137,6 @@ const cities = guestStore.getAllGuests.flatMap((country) => {
           <button type="submit" class="btn btn-primary">add guest</button>
         </div>
       </form>
-
     </div>
   </div>
 </template>

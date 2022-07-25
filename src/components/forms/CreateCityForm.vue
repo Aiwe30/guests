@@ -2,21 +2,25 @@
 import {reactive, computed } from "vue";
 import useVuelidate from "@vuelidate/core";
 import { required, alpha, integer } from "@vuelidate/validators";
-import { useGuestStore } from "../../stores/guestStore.js";
+import { useCountryStore } from "../../stores/countryStore.js";
+import { useCityStore } from "../../stores/cityStore.js";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-const cityStore = useGuestStore();
+const countryStore = useCountryStore();
+const cityStore = useCityStore();
+
+countryStore.loadAllCountries();
 
 const city = reactive({
-  country_id: '',
-  name: ''
+  countryId: '',
+  cityName: ''
 });
 
 const cityValidationRules = computed(() => {
   return {
-    country_id: {required, integer},
-    name: {required, alpha},
+    countryId: {required, integer},
+    cityName: {required, alpha},
   }
 });
 
@@ -26,8 +30,8 @@ const storeCity = async () => {
   const validateCity = await v$.value.$validate();
   if (validateCity) {
     cityStore.storeCity({
-      country_id: city.country_id,
-      name: city.name,
+      countryId: city.countryId,
+      cityName: city.cityName,
       guests: [],
     });
     v$.value.$reset();
@@ -37,8 +41,8 @@ const storeCity = async () => {
 }
 
 const resetCity = () => {
-  city.country_id = '';
-  city.name = '';
+  city.countryId = '';
+  city.cityName = '';
 }
 </script>
 <template>
@@ -49,20 +53,20 @@ const resetCity = () => {
       <form class="row card-body" @submit.prevent="storeCity">
         <div class="my-2">
           <label for="country-id" class="form-label">Country</label>
-          <select id="country-id" class="form-select" name="country_id" v-model="city.country_id">
+          <select id="country-id" class="form-select" name="countryId" v-model="city.countryId">
             <option disabled value="" selected>Please Select One</option>
-            <option :value="country.id" v-for="country in cityStore.getAllGuests" :key="country.id">{{ country.name }}</option>
+            <option :value="country.id" v-for="country in countryStore.getAllCountries" :key="country.id">{{ country.countryName }}</option>
           </select>
           <span class="text-danger ms-3 my-2">
-            <small v-if="v$.country_id.$errors[0]">{{ v$.country_id.$errors[0].$message }}</small>
+            <small v-if="v$.countryId.$errors[0]">{{ v$.countryId.$errors[0].$message }}</small>
           </span>
         </div>
 
         <div class="my-2">
-          <label for="name" class="form-label">City</label>
-          <input type="text" id="name" class="form-control" name="city_name" placeholder="Vilnius" v-model="city.name">
+          <label for="city-name" class="form-label">City</label>
+          <input type="text" id="city-name" class="form-control" name="city_name" placeholder="Vilnius" v-model="city.cityName">
           <span class="text-danger ms-3 my-2">
-            <small v-if="v$.name.$errors[0]">{{ v$.name.$errors[0].$message }}</small>
+            <small v-if="v$.cityName.$errors[0]">{{ v$.cityName.$errors[0].$message }}</small>
           </span>
         </div>
 

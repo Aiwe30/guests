@@ -1,5 +1,5 @@
-import  { defineStore} from "pinia";
-import { useGuestStore} from "./guestStore.js";
+import {defineStore} from "pinia";
+import {useGuestStore} from "./guestStore.js";
 
 export const useCityStore = defineStore('CityStore', {
     state: () => {
@@ -28,9 +28,9 @@ export const useCityStore = defineStore('CityStore', {
 
             const cities = [...state.cities];
             const guests = guestStore.getAllGuests;
+
             return cities.map((city) => {
-                const cityGuests = guests.filter(guest => guest.cityId === city.id)
-                city.cityGuests = cityGuests;
+                city.cityGuests = guests.filter(guest => guest.cityId === city.id);
                 return city
             });
         }
