@@ -11,8 +11,8 @@ const routeId = route.params.id;
 const city = cityStore.getCitiesWithGuests.find(city => city.id === Number(routeId));
 </script>
 <template>
-  <div class="container d-flex justify-content-center mb-5">
-    <div class="card border-0 col-12 col-lg-10 col-xl-8">
+  <div class="container d-flex flex-column justify-content-center align-items-center mb-5">
+    <div class="card border-0 col-12 col-lg-8 col-xl-6">
       <div class="card-title text-center mt-3">
         <h5>{{ city.cityName }}</h5>
       </div>

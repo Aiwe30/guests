@@ -4,8 +4,8 @@ const guestStore = useGuestStore();
 guestStore.loadAllGuests();
 </script>
 <template>
-  <div class="container d-flex flex-column justify-content-center mb-5">
-    <div class="card border-0 col-12 col-lg-10 col-xl-8" v-for="guest in guestStore.getGuestWithCityAndCountry" :key="guest.id">
+  <div class="container d-flex flex-column justify-content-center align-items-center mb-5">
+    <div class="card border-0 col-12 col-lg-8 col-xl-6" v-for="guest in guestStore.getGuestWithCityAndCountry" :key="guest.id">
       <div class="card-title mt-3 ms-4">
             <i class="bi bi-geo-alt"></i>
             {{ guest.guestCountryName }} > {{ guest.guestCityName }}
