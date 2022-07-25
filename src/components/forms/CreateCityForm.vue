@@ -47,7 +47,7 @@ const resetCity = () => {
 </script>
 <template>
   <div class="container d-flex justify-content-center">
-    <div class="card border-0 shadow col-12 col-lg-8 col-xl-6">
+    <div class="card border-0 shadow col-12 col-lg-8 col-xl-4">
       <h3 class="card-title text-center mt-3">Add City</h3>
 
       <form class="row card-body" @submit.prevent="storeCity">
